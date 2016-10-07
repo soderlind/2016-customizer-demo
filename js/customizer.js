@@ -1,6 +1,7 @@
 ( function( $ ) {
 	/**
 	 * Author on/off
+	 * 'show_author' is the name of the setting, as added by the $wp_customize->add_setting call
 	 * @type {String}
 	 */
 	wp.customize( 'show_author', function( value ) {
@@ -20,6 +21,7 @@
 	} );
 	/**
 	 * Post date on/off
+	 * 'show_date' is the name of the setting, as added by the $wp_customize->add_setting call
 	 * @type {String}
 	 */
 	wp.customize( 'show_date', function( value ) {

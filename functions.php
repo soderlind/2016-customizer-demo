@@ -3,7 +3,7 @@
  *  Best practices, load parent style from functions.php don't use @import in style.css
  *
  * @author soderlind
- * @version [version]
+ * @version 1.0.0
  */
 function theme_enqueue_styles() {
 	wp_enqueue_style( 'parent-style', get_template_directory_uri() . '/style.css' );
@@ -11,15 +11,15 @@ function theme_enqueue_styles() {
 add_action( 'wp_enqueue_scripts', 'theme_enqueue_styles' );
 
 /**
- * [customize_post_meta description]
+ * Add to customizer.
  *
  * @author soderlind
- * @version [version]
+ * @version 1.0.0
  * @param   WP_Customize_Manager    $wp_customize
  */
 function customize_post_meta( $wp_customize ) {
 	$wp_customize->add_section( 'post_meta', array(
-			'title'    => _x( 'Post Meta', 'customizer menu', '2016-customizer-demo' ),
+			'title'    => _x( 'Post Meta', 'customizer menu section', '2016-customizer-demo' ),
 			'priority' => 25,
 	) );
 	$wp_customize->add_setting( 'show_author', array(
@@ -29,7 +29,7 @@ function customize_post_meta( $wp_customize ) {
 	) );
 	$wp_customize->add_control( 'show_author', array(
 			'settings' => 'show_author',
-			'label'    => __( 'Show Author', '2016-customizer-demo' ),
+			'label'    => _x( 'Show Author', 'customizer menu setting', '2016-customizer-demo' ),
 			'section'  => 'post_meta',
 			'type'     => 'checkbox',
 	) );
@@ -40,7 +40,7 @@ function customize_post_meta( $wp_customize ) {
 	) );
 	$wp_customize->add_control( 'show_date', array(
 			'settings' => 'show_date',
-			'label'    => __( 'Show Date', '2016-customizer-demo' ),
+			'label'    => _x( 'Show Date', 'customizer menu setting', '2016-customizer-demo' ),
 			'section'  => 'post_meta',
 			'type'     => 'checkbox',
 	) );
@@ -48,10 +48,10 @@ function customize_post_meta( $wp_customize ) {
 add_action( 'customize_register','customize_post_meta' );
 
 /**
- * [customize_preview_post_meta description]
+ * Enqueue customizer preview script.
  *
  * @author soderlind
- * @version [version]
+ * @version 1.0.0
  */
 function customize_preview_post_meta() {
 	wp_enqueue_script( 'customize_preview_post_meta', get_stylesheet_directory_uri() . '/js/customizer.js', array( 'customize-preview', 'jquery' ), rand(), true );
@@ -62,7 +62,7 @@ add_action( 'customize_preview_init', 'customize_preview_post_meta' );
  * Load translations for 2016-customizer-demo
  *
  * @author soderlind
- * @version [version]
+ * @version 1.0.0
  */
 function customizer_demo_theme_setup() {
 	load_theme_textdomain( '2016-customizer-demo', get_stylesheet_directory() . '/languages' );
@@ -70,10 +70,10 @@ function customizer_demo_theme_setup() {
 add_action( 'after_setup_theme', 'customizer_demo_theme_setup' );
 
 /**
- * [twentysixteen_entry_meta description]
+ * Extend the default twentysixteen_entry_meta() function with test for 'show_author' and 'show_date'
  *
  * @author soderlind
- * @version [version]
+ * @version 1.0.0
  */
 function twentysixteen_entry_meta() {
 	if ( 'post' === get_post_type() && '1' == get_theme_mod( 'show_author', '1' ) ) {
