@@ -1,0 +1,51 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"Project-Id-Version: 2016 Customizer Demo\n"
+"POT-Creation-Date: 2016-10-07 14:02+0200\n"
+"PO-Revision-Date: 2016-10-07 13:59+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.9\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-WPHeader: style.css\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+
+#: functions.php:22
+msgctxt "customizer menu section"
+msgid "Post Meta"
+msgstr ""
+
+#: functions.php:32
+msgctxt "customizer menu setting"
+msgid "Show Author"
+msgstr ""
+
+#: functions.php:43
+msgctxt "customizer menu setting"
+msgid "Show Date"
+msgstr ""
+
+#: functions.php:83
+msgctxt "Used before post author name."
+msgid "Author"
+msgstr ""
+
+#: functions.php:96
+msgctxt "Used before post format."
+msgid "Format"
+msgstr ""
+
+#: functions.php:108
+#, php-format
+msgid "Leave a comment<span class=\"screen-reader-text\"> on %s</span>"
+msgstr ""
