@@ -1,0 +1,6 @@
+* text=auto
+
+/.gitattributes export-ignore
+/.codeclimate.yml export-ignore
+/.eslintignore export-ignore
+/.eslintrc export-ignore
