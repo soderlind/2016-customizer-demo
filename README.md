@@ -10,7 +10,7 @@ This demo is implemented as a child theme to [Twenty Sixteen](https://wordpress.
 
 ## Installation
 
-You know the drill, [download](), install and activate the theme.
+You know the drill, [download](https://github.com/soderlind/2016-customizer-demo/archive/master.zip), install and activate the theme.
 
 ## Use
 
