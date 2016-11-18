@@ -39,4 +39,24 @@
 			$( '.posted-on' ).toggle( '1' == to );
 		} );
 	} );
+	/**
+	 * Update SVG urr
+	 * 'svg_logo_url' is the name of the setting, as added by the $wp_customize->add_setting call
+	 * @type {String}
+	 */
+	wp.customize( 'svg_logo_url', function( value ) {
+		value.bind( function( to ) {
+			$( '.svg-logo' ).attr( 'src', to );
+		} );
+	} );
+	/**
+	 * Change SVG width
+	 * 'svg_logo_width' is the name of the setting, as added by the $wp_customize->add_setting call
+	 * @type {String}
+	 */
+	wp.customize( 'svg_logo_width', function( value ) {
+		value.bind( function( to ) {
+			$( '.svg-logo' ).width( to );
+		} );
+	} );
 } )( jQuery );
