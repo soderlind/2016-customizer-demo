@@ -1,8 +1,10 @@
-# Customizer Demo: In Twenty Sixteen, toggle post meta on or off
+# A Customizer Demo Theme
 
-Purpose of this demo is to demonstrate, for the theme developer, how to use the customizer postmessage transport and a preview script to toggle complex theme elements on or off.  
+This Twenty Sixteen child theme demonstrate the following **proof of concepts**:
 
-[Learn more at my site](https://soderlind.no/wordpress-customizer-demo-in-twenty-sixteen-toggle-post-meta-on-or-off/).
+1. How to use the customizer postmessage transport and a preview script to toggle complex theme elements on or off. ([learn more](https://soderlind.no/wordpress-customizer-demo-in-twenty-sixteen-toggle-post-meta-on-or-off/))
+1. How to select and add a SVG logo. ([learn more](https://soderlind.no/a-svg-custom-control-for-wordpress-customizer/))
+
 
 ## Prerequisite
 
@@ -14,7 +16,14 @@ You know the drill, [download](https://github.com/soderlind/2016-customizer-demo
 
 ## Use
 
+### Toggle complex theme elements on or off.
+
 <img src="assets/customizer-post-meta.gif" />
+
+### SVG logo Custom Customizer Component
+
+<img src="assets/svg-logo.gif" />
+
 
 ## Copyright and License
 
