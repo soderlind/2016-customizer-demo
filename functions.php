@@ -28,63 +28,39 @@ function customize_post_meta( $wp_customize ) {
 			'default'    => '1',
 			'capability' => 'manage_options',
 			'transport' => 'postMessage',
-			// 'transport' => 'refresh',
 	) );
-	$wp_customize->add_control( 'show_author', array(
+	$wp_customize->add_control( new Customizer_Toggle_Control( $wp_customize, 'show_author', array(
 			'settings' => 'show_author',
 			'label'    => _x( 'Show Author', 'customizer menu setting', '2016-customizer-demo' ),
 			'section'  => 'post_meta',
-			'type'     => 'checkbox',
-	) );
-
-	// $wp_customize->selective_refresh->add_partial( 'show_author', array(
-	//     'selector' => '.byline',
-	//     'container_inclusive' => false,
-	//     // 'render_callback' => function() {
-	// 	// 	echo  ( '1' === get_theme_mod( 'show_author' ) ) ? 0: 1;
-	//     //     // bloginfo( 'description' );
-	//     // },
-	// ) );
-
+			'type'     => 'ios',
+	) ) );
 	$wp_customize->add_setting( 'show_date', array(
 			'default'    => '1',
 			'capability' => 'manage_options',
 			'transport' => 'postMessage',
 	) );
-	$wp_customize->add_control( 'show_date', array(
+	$wp_customize->add_control( new Customizer_Toggle_Control( $wp_customize, 'show_date', array(
 			'settings' => 'show_date',
 			'label'    => _x( 'Show Date', 'customizer menu setting', '2016-customizer-demo' ),
 			'section'  => 'post_meta',
-			'type'     => 'checkbox',
-	) );
-
-	// $wp_customize->selective_refresh->add_partial( 'show_date', array(
-	//     'selector' => '.posted-on a',
-	//     'container_inclusive' => false,
-	//     'render_callback' => function() {
-	// 		echo date( get_option( 'date_format' ) );
-	//         // bloginfo( 'description' );
-	//     },
-	// ) );
-
+			'type'     => 'ios',
+	) ) );
 	$wp_customize->add_section( 'svg_logo', array(
 			'title'    => _x( 'SVG Logo', 'customizer menu section', '2016-customizer-demo' ),
 			'priority' => 10,
 	) );
-
 	$wp_customize->add_setting( 'svg_logo_url', array(
-			// 'default'       => '5',
+			'default'       => get_theme_mod( 'svg_logo_url', get_template_directory_uri() . '/svg/logo01.svg' ),
 			'capability'    => 'edit_theme_options',
 			'transport'     => 'postMessage',
 	) );
-
 	$wp_customize->add_control( new DSS_SVG_Picker_Option( $wp_customize, 'svg_logo_url', array(
 			// 'label'	      => esc_html__( 'Select SVG Logo', '2016-customizer-demo' ),
 			'section'     => 'svg_logo',
 			'settings'    => 'svg_logo_url',
 			'type'        => 'svg',
 	) ) );
-
 	$wp_customize->add_setting( 'svg_logo_width', array(
 			'default'       => get_theme_mod( 'svg_logo_width', '240' ),
 			'capability'    => 'edit_theme_options',
@@ -92,66 +68,29 @@ function customize_post_meta( $wp_customize ) {
 	) );
 
 	$wp_customize->add_control( 'svg_logo_width', array(
-			'type' => 'range',
-			'section' => 'svg_logo',
-			'settings'    => 'svg_logo_width',
-			'label' => __( 'Logo Width' ),
-			// 'description' => __( 'Width in px, default and max-width 240px' ),
+			'type'     => 'range',
+			'section'  => 'svg_logo',
+			'settings' => 'svg_logo_width',
+			'label'    => __( 'Logo Width' ),
 			'input_attrs' => array(
-				'min' => 1,
-				'max' => 240,
+				'min'  => 1,
+				'max'  => 240,
 				'step' => 1,
 		  ),
 	) );
 
-	// $wp_customize->add_setting( 'svg_logo_remove', array(
-	// 		'default'       => true,
-	// 		'capability'    => 'edit_theme_options',
-	// 		'transport'     => 'postMessage',
-	// ) );
-	//
-	// $wp_customize->add_control( 'svg_logo_remove', array(
-	// 		'label'	      => esc_html__( 'Display SVG Logo', '2016-customizer-demo' ),
-	// 		'section'     => 'svg_logo',
-	// 		'settings'    => 'svg_logo_remove',
-	// 		'type'        => 'checkbox',
-	// ) ) ;
-
 	$wp_customize->add_setting( 'svg_logo_remove', array(
-			'default'       => true,
-			'capability'    => 'edit_theme_options',
-			'transport'     => 'postMessage',
+			'default'     => true,
+			'capability'  => 'edit_theme_options',
+			'transport'   => 'postMessage',
 	) );
 
-	$wp_customize->add_control( new DSS_Toggle( $wp_customize, 'svg_logo_remove', array(
-			'label'	      => esc_html__( 'Display SVG Logo', '2016-customizer-demo' ),
+	$wp_customize->add_control( new Customizer_Toggle_Control( $wp_customize, 'svg_logo_remove', array(
+			'label'	      => esc_html__( 'Toggle me on or off', '2016-customizer-demo' ),
 			'section'     => 'svg_logo',
 			'settings'    => 'svg_logo_remove',
-			'type'        => 'toggle',
-			'input_attrs' => array(
-					'off' => 'off text',
-					'on'  => 'on text',
-			),
+			'type'        => 'ios',// light, ios, flat
 	) ) );
-
-	// $wp_customize->selective_refresh->add_partial( 'svg_logo_url', array(
-	//     'selector' => '.svg-logo',
-	//     'container_inclusive' => false,
-	//     'render_callback' => function() {
-	// 		echo date( get_option( 'date_format' ) );
-	//         // bloginfo( 'description' );
-	//     },
-	// ) );
-	//
-	// $partial = $wp_customize->selective_refresh->get_partial( 'custom_logo' );
-	//
-	//
-	// // @codingStandardsIgnoreStart
-	// printf( '<pre>%s</pre>', print_r( $partial, true ) );
-	// // @codingStandardsIgnoreEnd
-	//
-	// $wp_customize->selective_refresh->remove_partial( 'custom_logo');
-
 }
 add_action( 'customize_register','customize_post_meta' );
 
@@ -246,144 +185,66 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 		}
 	}
 
-
-	class DSS_Toggle extends WP_Customize_Control {
-		public $type = 'toggle';
+	class Customizer_Toggle_Control extends WP_Customize_Control {
+		public $type = 'ios';
 
 		/**
-		 * Enqueue scripts/styles for the color picker.
+		 * Enqueue scripts/styles.
 		 *
 		 * @since 3.4.0
 		 */
 		public function enqueue() {
-			global $_wp_admin_css_colors;
-			wp_enqueue_script( 'pure-css-toggle-buttons', get_stylesheet_directory_uri() . '/js/customizer.js', array( 'jquery' ), rand(), true );
+			wp_enqueue_script( 'customizer-toggle-control', get_stylesheet_directory_uri() . '/js/customizer-toggle-control.js', array( 'jquery' ), rand(), true );
 			wp_enqueue_style( 'pure-css-toggle-buttons', get_stylesheet_directory_uri() . '/pure-css-toggle-buttons/pure-css-togle-buttons.css', array(), rand() );
 
-			$color_scheme = array();
-			$colors = array();
-			$default_colors = array('#222','#333');
-			$user_color_scheme_name = get_user_option( 'admin_color' );
-			if ( isset( $user_color_scheme_name ) && '' !== $user_color_scheme_name ) {
-				$color_scheme = $_wp_admin_css_colors[get_user_option( 'admin_color' )];
-				$colors =  wp_parse_args( $_wp_admin_css_colors['colors'], $default_colors );
-			} else {
-				$colors = $default_colors;
-			}
+			$css = '
+				.disabled-control-title {
+					color: #a0a5aa;
+				}
+				input[type=checkbox].tgl-light:checked + .tgl-btn {
+			  		background: #0085ba;
+				}
+				input[type=checkbox].tgl-light + .tgl-btn {
+				  background: #a0a5aa;
+			  	}
+				input[type=checkbox].tgl-light + .tgl-btn:after {
+				  background: #f7f7f7;
+			  	}
 
-			/*
-			[blue] => stdClass Object
-			        (
-			            [name] => Blue
-			            [url] => http://customizer.dev/wp-admin/css/colors/blue/colors.min.css
-			            [colors] => Array
-			                (
-			                    [0] => #096484
-			                    [1] => #4796b3
-			                    [2] => #52accc
-			                    [3] => #74B6CE
-			                )
+				input[type=checkbox].tgl-ios:checked + .tgl-btn {
+				  background: #0085ba;
+				}
 
-			            [icon_colors] => Array
-			                (
-			                    [base] => #e5f8ff
-			                    [focus] => #fff
-			                    [current] => #fff
-			                )
+				input[type=checkbox].tgl-flat:checked + .tgl-btn {
+				  border: 4px solid #0085ba;
+				}
+				input[type=checkbox].tgl-flat:checked + .tgl-btn:after {
+				  background: #0085ba;
+				}
 
-			        )
-			 */
-
-
-
-				$css = '
-					.disabled-control-title {
-						color: #a0a5aa;
-					}
-					input[type=checkbox].tgl-light:checked + .tgl-btn {
-				  		background: #0085ba;
-					}
-					input[type=checkbox].tgl-light + .tgl-btn {
-					  background: #a0a5aa;
-				  	}
-					input[type=checkbox].tgl-light + .tgl-btn:after {
-					  background: #f7f7f7;
-				  	}
-
-					input[type=checkbox].tgl-ios:checked + .tgl-btn {
-					  background: #0085ba;
-					}
-				';
-				wp_add_inline_style( 'pure-css-toggle-buttons' , $css );
+			';
+			wp_add_inline_style( 'pure-css-toggle-buttons' , $css );
 		}
 
+		/**
+		 * Render the control's content.
+		 *
+		 * @author soderlind
+		 * @version 1.2.0
+		 */
 		public function render_content() {
-			global $_wp_admin_css_colors;
-			// @codingStandardsIgnoreStart
-			// printf( '<pre>%s</pre>', print_r( $_wp_admin_css_colors[get_user_option( 'admin_color' )], true ) );
-			// printf( '<pre>%s</pre>', print_r( $_wp_admin_css_colors, true ) );
-			// echo '<pre>' . wp_color_scheme_settings() . ' </pre>';
-			// @codingStandardsIgnoreEnd
-			/*
-			(
-			    [name] => Default
-			    [url] =>
-			    [colors] => Array
-			        (
-			            [0] => #222
-			            [1] => #333
-			            [2] => #0073aa
-			            [3] => #00a0d2
-			        )
-
-			    [icon_colors] => Array
-			        (
-			            [base] => #82878c
-			            [focus] => #00a0d2
-			            [current] => #fff
-			        )
-
-			)
-			*/
 			?>
-			<!-- <label> -->
+			<label>
 				<div style="display:flex;flex-direction: row;justify-content: flex-start;">
-				<span class="customize-control-title" style="flex: 2 0 0; vertical-align: middle;"><?php echo esc_html( $this->label ); ?></span>
-				<input id="cb1" type="checkbox" class="tgl tgl-light" value="<?php echo esc_attr( $this->value() ); ?>" <?php $this->link(); checked( $this->value() ); ?> />
-				<label for="cb1" class="tgl-btn"></label>
+					<span class="customize-control-title" style="flex: 2 0 0; vertical-align: middle;"><?php echo esc_html( $this->label ); ?></span>
+					<input id="cb<?php echo $this->instance_number ?>" type="checkbox" class="tgl tgl-<?php echo $this->type?>" value="<?php echo esc_attr( $this->value() ); ?>" <?php $this->link(); checked( $this->value() ); ?> />
+					<label for="cb<?php echo $this->instance_number ?>" class="tgl-btn"></label>
 				</div>
 				<?php if ( ! empty( $this->description ) ) : ?>
 				<span class="description customize-control-description"><?php echo $this->description; ?></span>
 				<?php endif; ?>
-			<!-- </label> -->
+			</label>
 			<?php
-			/*
-			switch ( $this->type ) {
-				case 'value':
-					# code...
-					break;
-
-				default:
-					# code...
-					break;
-			}
-
-			<input id="cb1" type="checkbox" class="tgl tgl-light"/>
-			<label for="cb1" class="tgl-btn"></label>
-
-			<input id="cb2" type="checkbox" class="tgl tgl-ios"/>
-			<label for="cb2" class="tgl-btn"></label>
-
-			<input id="cb3" type="checkbox" class="tgl tgl-skewed"/>
-		    <label data-tg-off="OFF" data-tg-on="ON" for="cb3" class="tgl-btn"></label>
-
-			<input id="cb4" type="checkbox" class="tgl tgl-flat"/>
-		    <label for="cb4" class="tgl-btn"></label>
-
-			<input id="cb5" type="checkbox" class="tgl tgl-flip"/>
-		    <label data-tg-off="Nope" data-tg-on="Yeah!" for="cb5" class="tgl-btn"></label>
-			<?php
-			*/
 		}
 	}
 }
