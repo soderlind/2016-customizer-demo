@@ -18,7 +18,7 @@ You know the drill, [download](https://github.com/soderlind/2016-customizer-demo
 
 ## Use
 
-### Toggle complex theme elements on or off.
+### Toggle complex theme elements on or off using the [Customizer Toggle Control](https://github.com/soderlind/class-customizer-toggle-control)
 
 <img src="assets/customizer-post-meta.gif" />
 
@@ -26,6 +26,9 @@ You know the drill, [download](https://github.com/soderlind/2016-customizer-demo
 
 <img src="assets/svg-logo.gif" />
 
+### Toggle visibility
+
+<img src="assets/customizer-toggle-more.gif" />
 
 ## Copyright and License
 
