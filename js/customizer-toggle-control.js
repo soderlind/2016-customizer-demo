@@ -21,7 +21,35 @@
 		        value.bind( function( to ) {
 		            controlTitle.toggleClass( 'disabled-control-title', !value.get() );
 		        } );
+
+
 		    } );
 		} );
+
+		// from http://126kr.com/article/6kifl0u7nn6
+		customize( 'svg_logo_remove', function( value ) {
+			var svgControls = [
+				'svg_logo_url',
+				'svg_logo_width'
+			];
+
+			$.each( svgControls, function( index, id ) {
+				customize.control( id, function( control ) {
+					/**
+					 * Toggling function
+					 */
+					var toggle = function( to ) {
+						control.toggle( to );
+					};
+
+					// 1. On loading.
+					toggle( value.get() );
+
+					// 2. On value change.
+					value.bind( toggle );
+				} );
+			} );
+		} );
+
 	} );
 } )( jQuery );

@@ -50,6 +50,17 @@ function customize_post_meta( $wp_customize ) {
 			'title'    => _x( 'SVG Logo', 'customizer menu section', '2016-customizer-demo' ),
 			'priority' => 10,
 	) );
+	$wp_customize->add_setting( 'svg_logo_remove', array(
+			'default'     => true,
+			'capability'  => 'edit_theme_options',
+			'transport'   => 'postMessage',
+	) );
+	$wp_customize->add_control( new Customizer_Toggle_Control( $wp_customize, 'svg_logo_remove', array(
+			'label'	      => esc_html__( 'Display SVG logo', '2016-customizer-demo' ),
+			'section'     => 'svg_logo',
+			'settings'    => 'svg_logo_remove',
+			'type'        => 'ios',// light, ios, flat
+	) ) );
 	$wp_customize->add_setting( 'svg_logo_url', array(
 			'default'       => get_theme_mod( 'svg_logo_url', get_template_directory_uri() . '/svg/logo01.svg' ),
 			'capability'    => 'edit_theme_options',
@@ -79,18 +90,6 @@ function customize_post_meta( $wp_customize ) {
 		  ),
 	) );
 
-	$wp_customize->add_setting( 'svg_logo_remove', array(
-			'default'     => true,
-			'capability'  => 'edit_theme_options',
-			'transport'   => 'postMessage',
-	) );
-
-	$wp_customize->add_control( new Customizer_Toggle_Control( $wp_customize, 'svg_logo_remove', array(
-			'label'	      => esc_html__( 'Toggle me on or off', '2016-customizer-demo' ),
-			'section'     => 'svg_logo',
-			'settings'    => 'svg_logo_remove',
-			'type'        => 'ios',// light, ios, flat
-	) ) );
 }
 add_action( 'customize_register','customize_post_meta' );
 
@@ -319,7 +318,7 @@ add_action( 'customize_controls_enqueue_scripts', 'customizer_svg_enqueue_script
 function add_svg_logo( $html ) {
 	$svg_logo_remove = get_theme_mod( 'svg_logo_remove', false );
 	if ( false !== $svg_logo_remove ) {
-		$svg_logo_url  = get_theme_mod( 'svg_logo_url', '' );
+		$svg_logo_url  = get_theme_mod( 'svg_logo_url', get_template_directory_uri() . '/svg/logo01.svg' );
 		$svg_logo_width = get_theme_mod( 'svg_logo_width', '240' );
 		if ( '' !== $svg_logo_url ) {
 			$html = sprintf( '<a href="%1$s" class="custom-logo-link" rel="home" itemprop="url">%2$s</a>',
