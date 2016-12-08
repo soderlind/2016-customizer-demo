@@ -4,7 +4,7 @@ This Twenty Sixteen child theme demonstrate the following **proof of concepts**:
 
 1. How to use the customizer postmessage transport and a preview script to toggle complex theme elements on or off. ([learn more](https://soderlind.no/wordpress-customizer-demo-in-twenty-sixteen-toggle-post-meta-on-or-off/))
 1. How to select and add an SVG logo. ([learn more](https://soderlind.no/a-svg-logo-custom-control-for-wordpress-customizer/))
-1. Replace WordPress customizer checkbox control with [Customizer Toggle Control](https://github.com/soderlind/class-customizer-toggle-control)
+1. Replaced WordPress customizer checkbox control with [Customizer Toggle Control](https://github.com/soderlind/class-customizer-toggle-control)
 
 
 ## Prerequisite
