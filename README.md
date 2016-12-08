@@ -18,17 +18,17 @@ You know the drill, [download](https://github.com/soderlind/2016-customizer-demo
 
 ## Use
 
-### Toggle complex theme elements on or off using the [Customizer Toggle Control](https://github.com/soderlind/class-customizer-toggle-control)
+### Toggle complex theme elements on or off
 
-<img src="assets/customizer-post-meta.gif" />
+<img src="assets/customizer-post-meta.gif" width="650" />
 
 ### SVG logo Custom Customizer Component
 
-<img src="assets/svg-logo.gif" />
+<img src="assets/svg-logo.gif" width="650" />
 
 ### Toggle visibility
 
-<img src="assets/customizer-toggle-more.gif" />
+<img src="assets/customizer-toggle-more.gif" width="650" />
 
 ## Copyright and License
 
