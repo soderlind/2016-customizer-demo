@@ -31,6 +31,11 @@ You know the drill, [download](https://github.com/soderlind/2016-customizer-demo
 
 <img src="assets/customizer-toggle-more.gif" width="650" />
 
+### Range & Value Control
+
+<img src="assets/logo-width.gif" width="650" />
+
+
 ## Copyright and License
 
 **2016-customizer-demo** is copyright 2016 Per Soderlind
