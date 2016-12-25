@@ -6,6 +6,7 @@ This Twenty Sixteen child theme demonstrate the following **proof of concepts**:
 1. How to select and add an SVG logo. ([learn more](https://soderlind.no/a-svg-logo-custom-control-for-wordpress-customizer/))
 1. Replaced WordPress customizer checkbox control with my [Customizer Toggle Control](https://github.com/soderlind/class-customizer-toggle-control)
 1. Toggle [visibility](https://github.com/soderlind/2016-customizer-demo/blob/master/js/customizer-toggle-control.js#L29-L52)
+1. Replace the range control with a [range & value control](https://github.com/soderlind/class-customizer-range-value-control).
 
 
 ## Prerequisite
