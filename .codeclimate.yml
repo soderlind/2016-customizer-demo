@@ -24,5 +24,6 @@ ratings:
 exclude_paths:
   - node_modules/**/*
   - languages/**
+  - js/image-picker/**
   # - css/**
   # - js/**
