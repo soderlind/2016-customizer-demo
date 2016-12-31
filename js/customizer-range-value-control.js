@@ -1,30 +1,29 @@
 /**
  * Script run inside a Customizer control sidebar
- *
- * Enable / disable the control title by toggeling its .disabled-control-title style class on or off.
  */
-(function($) {
-    wp.customize.bind('ready', function() {
-        rangeSlider();
-    });
+ (function($) {
+     wp.customize.bind('ready', function() {
+         rangeSlider();
+     });
 
-    var rangeSlider = function() {
-        var slider = $('.range-slider'),
-            range = $('.range-slider__range'),
-            value = $('.range-slider__value');
+     var rangeSlider = function() {
+         var slider = $('.range-slider'),
+             range = $('.range-slider__range'),
+             value = $('.range-slider__value');
 
-        slider.each(function() {
+         slider.each(function() {
 
-            value.each(function() {
-                var value = $(this).prev().attr('value');
-                $(this).html(value);
-            });
+             value.each(function() {
+                 var value = $(this).prev().attr('value');
+ 				var suffix = ($(this).prev().attr('suffix')) ? $(this).prev().attr('suffix') : '';
+                 $(this).html(value + suffix);
+             });
 
-            range.on('input', function() {
-                $(this).next(value).html(this.value);
-				// $(this).html(this.value);
-            });
-        });
-    };
+             range.on('input', function() {
+ 				var suffix = ($(this).attr('suffix')) ? $(this).attr('suffix') : '';
+                 $(this).next(value).html(this.value + suffix );
+             });
+         });
+     };
 
-})(jQuery);
+ })(jQuery);
