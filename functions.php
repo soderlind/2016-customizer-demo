@@ -364,3 +364,26 @@ function add_svg_logo( $html ) {
 	return $html;
 }
 add_filter( 'get_custom_logo', 'add_svg_logo' );
+
+
+
+/**
+ * Enqueue customizer control scripts.
+ */
+function on_customize_controls_enqueue_scripts() {
+	$handle = 'wcag-validate-customizer-color-contrast';
+	$src = get_stylesheet_directory_uri() . '/js/customizer-validate-wcag-color-contrast.js';
+	$deps = [ 'customize-controls' ];
+	wp_enqueue_script( $handle, $src, $deps );
+
+	$exports = [
+		'validate_color_contrast' => [
+			// key = current color control , values = array with color controls to check color contrast against
+			'page_background_color' => [ 'main_text_color', 'secondary_text_color' ],
+			'main_text_color'       => [ 'page_background_color' ],
+			'secondary_text_color'  => [ 'page_background_color' ],
+		],
+	];
+	wp_scripts()->add_data( $handle, 'data', sprintf( 'var _validateWCAGColorContrastExports = %s;', wp_json_encode( $exports ) ) );
+}
+add_action( 'customize_controls_enqueue_scripts', 'on_customize_controls_enqueue_scripts' );
