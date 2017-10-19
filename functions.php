@@ -385,5 +385,24 @@ function on_customize_controls_enqueue_scripts() {
 		],
 	];
 	wp_scripts()->add_data( $handle, 'data', sprintf( 'var _validateWCAGColorContrastExports = %s;', wp_json_encode( $exports ) ) );
+
+	$handle = 'color-control-config';
+	$src = get_stylesheet_directory_uri() . '/js/customizer-color-control-change-config.js';
+	$deps = [ 'wp-color-picker' ];
+	wp_enqueue_script( $handle, $src, $deps , rand());
+	// options you can set, see the Iris Options at http://automattic.github.io/Iris/
+	$options = [
+			'hide' => false,
+			'palettes' => [  // empty array will remove the palette from the control.
+				'#000000',
+				'#ffffff',
+				'#c32d41',
+				'#144696',
+				'#e4e0e0',
+				'#f4f1f0',
+			],
+	];
+
+	wp_scripts()->add_data( $handle, 'data', sprintf( 'var _ColorControlConfig = %s;', wp_json_encode( $options ) ) );
 }
 add_action( 'customize_controls_enqueue_scripts', 'on_customize_controls_enqueue_scripts' );

@@ -8,6 +8,7 @@ This Twenty Sixteen child theme demonstrate the following **proof of concepts**:
 1. Toggle [visibility](https://github.com/soderlind/2016-customizer-demo/blob/master/js/customizer-toggle-control.js#L29-L52)
 1. Replace the range control with a [range & value control](https://github.com/soderlind/class-customizer-range-value-control).
 1. [Validate WCAG Color Contrast for Customizer Color Control](https://github.com/soderlind/customizer-validate-wcag-color-contrast)
+1. [Change the config of the Customizer Color Control](https://github.com/soderlind/customizer-color-control-change-config)
 
 
 ## Prerequisite
@@ -40,6 +41,9 @@ You know the drill, [download](https://github.com/soderlind/2016-customizer-demo
 
 <img src="assets/wcag-color-contrast.gif" width="650" />
 
+### Change the config of the Customizer Color Control
+
+<img src="assets/palette-or-no-palette.jpg" width="650" />
 
 ## Copyright and License
 
